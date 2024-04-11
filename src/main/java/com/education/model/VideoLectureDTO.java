@@ -1,5 +1,7 @@
 package com.education.model;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,7 +14,12 @@ import lombok.ToString;
 public class VideoLectureDTO {
 
 	
-	public Long id;
+	public Long videoId;
+	public String videoName;
 	public String title;
-	public String type;
+	public String description;
+	public String classCode;
+	public String chapterCode;
+	public MultipartFile file;
+	//public String baseVideo;
 }
