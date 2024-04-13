@@ -28,7 +28,7 @@ public class VideoLectureService
 		videoLecture.setVideoName(videoLectureDTO.getFile().getOriginalFilename());
 		//videoLecture.setClassCode(videoLectureDTO.getClassCode());
 		videoLecture.setTitle(videoLectureDTO.getTitle());
-		videoLecture.setDescription(videoLecture.getDescription());
+		videoLecture.setDescription(videoLectureDTO.getDescription());
 		videoLecture.setChapterCode(videoLectureDTO.getChapterCode());
 		videoLecture.setClassCode(videoLectureDTO.getClassCode());
 		videoLecture.setVideoData(videoLectureDTO.getFile().getBytes());
@@ -51,12 +51,11 @@ public class VideoLectureService
 	}
 	public List<VideoLecture> getVideosByChapter(String chapterCode)
 	{
-		List<VideoLecture> videos=videoLectureRepo.findByChapterCode(chapterCode);
-		for(VideoLecture video: videos)
-		{
-			video.setVideoData(null);
-		}
-		return videos;
+		List<VideoLecture> videoData =  videoLectureRepo.findByChapterCode(chapterCode);
+		
+		return videoData;
+		
+		
 	}
 	public List<VideoLecture> getAllVideo()
 	{

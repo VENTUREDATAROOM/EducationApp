@@ -2,11 +2,14 @@ package com.education.services;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.education.repository.QuestionRepo;
 import com.education.entity.QuestionEntity;
 import com.education.model.QuestionDTO;
+@Service
 public class QuestionService {
 
 	
@@ -44,6 +47,8 @@ public class QuestionService {
 		 return "Error";
 		 }
 	   } 
+	
+	
 	
 }
 

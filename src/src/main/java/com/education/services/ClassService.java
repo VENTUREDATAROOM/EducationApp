@@ -55,8 +55,8 @@ public class ClassService {
 	}
 	public String generateUniqueClassCode()
 	{
-		UUID uuid=UUID.randomUUID();
-		return uuid.toString();
+		return UUID.randomUUID().toString().replace("-","").substring(12);
+		
 	}
 
 }

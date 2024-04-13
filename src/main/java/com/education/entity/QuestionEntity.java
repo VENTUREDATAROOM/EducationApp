@@ -34,6 +34,8 @@ public class QuestionEntity {
 	private String option4;
     @Column(name="right_answer")
 	private String rightAnswer;
+    @Column(name="wrong_answer")
+    private String wrongAnswer;
     @Column(name="difficulty_level")
 	private String difficultyLevel;
     @Column(name="category")

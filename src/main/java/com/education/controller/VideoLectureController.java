@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.education.entity.VideoLecture;
@@ -48,7 +49,7 @@ public class VideoLectureController {
 	}
 	
 	@GetMapping(value="stream/{videoId}")
-	public ResponseEntity<InputStreamResource> streamVideo(@PathVariable Long videoId)
+	public ResponseEntity<InputStreamResource> streamVideo(@PathVariable  Long videoId)
 	{
 		byte[] videoBytes=videoLectureService.getVideoById(videoId);
 		HttpHeaders header=new HttpHeaders();
@@ -58,7 +59,7 @@ public class VideoLectureController {
 		return new ResponseEntity<>(new InputStreamResource(stream),header,HttpStatus.OK);
 	}
 	@GetMapping(value="/chapter/{chapterCode}")
-	public ResponseEntity<?> getVideosByChapter(@PathVariable String chapterCode)
+	public ResponseEntity<Object> getVideosByChapter(@PathVariable("chapterCode")  String chapterCode)
 	{
 		List<VideoLecture> v=videoLectureService.getVideosByChapter(chapterCode);
 		return new ResponseWithList().generateResponse("provide", HttpStatus.OK, "200", v);
